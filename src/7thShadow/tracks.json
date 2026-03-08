@@ -1,0 +1,66 @@
+[
+  {
+    "trackId": "01",
+    "title": "I Yearn",
+    "compositionId": "SeventhShadow-01",
+    "lyricsFile": "7thShadow/01 I yearn.lrc",
+    "audioFile": "7thShadow/01 I yearn.flac",
+    "coverImageFile": "7thShadow/cover_16_9.jpg"
+  },
+  {
+    "trackId": "02",
+    "title": "Rendered Love",
+    "compositionId": "SeventhShadow-02",
+    "lyricsFile": "7thShadow/02 Rendered Love.lrc",
+    "audioFile": "7thShadow/02 Rendered Love.flac",
+    "coverImageFile": "7thShadow/cover_16_9.jpg"
+  },
+  {
+    "trackId": "03",
+    "title": "My 6 Fingered Valentine",
+    "compositionId": "SeventhShadow-03",
+    "lyricsFile": "7thShadow/03 My 6 fingered Valentine.lrc",
+    "audioFile": "7thShadow/03 My 6 fingered Valentine.flac",
+    "coverImageFile": "7thShadow/cover_16_9.jpg"
+  },
+  {
+    "trackId": "04",
+    "title": "Aria of the Algorithm",
+    "compositionId": "SeventhShadow-04",
+    "lyricsFile": "7thShadow/04 Aria of the Algorithm.lrc",
+    "audioFile": "7thShadow/04 Aria of the Algorithm.flac",
+    "coverImageFile": "7thShadow/cover_16_9.jpg"
+  },
+  {
+    "trackId": "05",
+    "title": "The Beast in the Baud",
+    "compositionId": "SeventhShadow-05",
+    "lyricsFile": "7thShadow/05 The Beast in the Baud.lrc",
+    "audioFile": "7thShadow/05 The Beast in the Baud.flac",
+    "coverImageFile": "7thShadow/cover_16_9.jpg"
+  },
+  {
+    "trackId": "06",
+    "title": "The Sistine Simulation",
+    "compositionId": "SeventhShadow-06",
+    "lyricsFile": "7thShadow/06 The Sistine Simulation.lrc",
+    "audioFile": "7thShadow/06 The Sistine Simulation.flac",
+    "coverImageFile": "7thShadow/cover_16_9.jpg"
+  },
+  {
+    "trackId": "07",
+    "title": "Witness to the Void",
+    "compositionId": "SeventhShadow-07",
+    "lyricsFile": "7thShadow/07 Witness to the Void.lrc",
+    "audioFile": "7thShadow/07 Witness to the Void.flac",
+    "coverImageFile": "7thShadow/cover_16_9.jpg"
+  },
+  {
+    "trackId": "08",
+    "title": "Let the Prompt Consume",
+    "compositionId": "SeventhShadow-08",
+    "lyricsFile": "7thShadow/08 Let the Prompt Consume.lrc",
+    "audioFile": "7thShadow/08 Let the Prompt Consume.flac",
+    "coverImageFile": "7thShadow/cover_16_9.jpg"
+  }
+]

@@ -5,10 +5,13 @@ dist/
 
 # Remotion
 .remotion/
+build/
 out/
+renders/
 *.mp4
 *.webm
 *.gif
+*.flac
 
 # OS
 .DS_Store
