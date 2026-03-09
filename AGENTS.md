@@ -1,40 +1,36 @@
-# AGENTS.md
+# Agent Instructions
 
-## Project Focus
+## Package Manager
+- Use `npm`: `npm install`, `npm run dev`, `npm run lint`
 
-This repository renders lyric videos for The Seventh Shadow album with Remotion plus shell wrappers around `ffprobe` and `ffmpeg`.
+## File-Scoped Commands
+| Task | Command |
+|------|---------|
+| Lint file | `npx eslint src/path/to/file.tsx` |
+| Typecheck project | `npx tsc --noEmit` |
+| List compositions | `npx remotion compositions src/index.ts` |
+| Render one track | `./scripts/render-track.sh --project <project-id> <track-id>` |
 
-## Working Rules
+## Commit Attribution
+- AI commits MUST include:
+```text
+Co-Authored-By: Codex GPT-5 <noreply@openai.com>
+```
 
-- Keep `src/7thShadow/tracks.json` as the single source of truth for album tracks.
-- Do not duplicate lyric text into TypeScript files. Track lyrics come from `.lrc` files in `public/7thShadow/`.
-- Do not delete `src/PaganIntro.tsx`. It is a test board and should stay separate from the album pipeline.
-- Use composition IDs in the form `SeventhShadow-01`, `SeventhShadow-02`, etc. Do not use `:` in composition IDs.
-- Preserve safe handling of spaces in filenames and output paths when editing shell scripts.
+## Key Conventions
+- Multi-project registry lives in [src/projects.ts](/Users/arda/projects/Lyrics-Video-generator/src/projects.ts).
+- Each album keeps its track manifest in `src/<project>/tracks.json`.
+- Keep track assets under matching `public/<project>/...` paths.
+- Do not duplicate lyric text into TypeScript; lyrics stay in tracked `.lrc` files.
+- Do not delete `src/PaganIntro.tsx`; it remains a test board outside the album pipeline.
+- Composition IDs must stay colon-free and stable, e.g. `SeventhShadow-01`, `PaganAcolytes-01`.
+- Preserve safe shell quoting for filenames and output paths with spaces.
 
 ## Render Pipeline
+- `scripts/render-track.sh` and `scripts/render-album.sh` accept `--project <project-id>`.
+- Default project is `7thShadow` when `--project` is omitted.
+- Final outputs must be named `NN - Title.mp4`, matching the manifest title.
 
-- `scripts/render-track.sh <track-id> [output-dir]` is the primary one-track entry point.
-- The script must:
-  1. Read the track from `src/7thShadow/tracks.json`.
-  2. Validate the referenced `.lrc` and `.flac`.
-  3. Use `ffprobe` to read audio duration.
-  4. Render a silent Remotion MP4.
-  5. Convert audio to AAC with `ffmpeg`.
-  6. Mux AAC into the final MP4.
-- Final outputs should be named `NN - Title.mp4`, matching the manifest title.
-
-## File Tracking
-
-- Keep `.lrc` files tracked.
-- Ignore `.flac` source audio.
-- Ignore rendered `.mp4` files and the `renders/` directory.
-
-## Useful Commands
-
-```bash
-npm run dev
-npm run lint
-npm run render:track -- 01
-npm run render:album
-```
+## Available Projects
+- `7thShadow`
+- `Pagan/Acolytes`

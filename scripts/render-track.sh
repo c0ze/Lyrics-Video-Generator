@@ -3,7 +3,7 @@
 set -euo pipefail
 
 usage() {
-  echo "Usage: $0 <track-id> [output-dir]" >&2
+  echo "Usage: $0 [--project <project-id>] <track-id> [output-dir]" >&2
   exit 1
 }
 
@@ -14,12 +14,52 @@ require_command() {
   fi
 }
 
-if [[ $# -lt 1 || $# -gt 2 ]]; then
+project_id="7thShadow"
+args=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --project)
+      if [[ $# -lt 2 ]]; then
+        echo "Missing value for --project." >&2
+        exit 1
+      fi
+      project_id=$2
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      ;;
+    --)
+      shift
+      while [[ $# -gt 0 ]]; do
+        args+=("$1")
+        shift
+      done
+      ;;
+    *)
+      args+=("$1")
+      shift
+      ;;
+  esac
+done
+
+if [[ ${#args[@]} -lt 1 || ${#args[@]} -gt 2 ]]; then
   usage
 fi
 
-track_input=$1
-output_dir=${2:-"$PWD/renders"}
+if [[ $project_id == *".."* ]]; then
+  echo "Project id must not contain '..'." >&2
+  exit 1
+fi
+
+track_input=${args[0]}
+project_slug=${project_id//\//-}
+default_output_dir="$PWD/renders"
+if [[ $project_id != "7thShadow" ]]; then
+  default_output_dir="$PWD/renders/$project_slug"
+fi
+output_dir=${args[1]:-"$default_output_dir"}
 
 if [[ $track_input =~ [^0-9] ]]; then
   echo "Track id must be numeric." >&2
@@ -30,7 +70,7 @@ track_id=$(printf "%02d" "$((10#$track_input))")
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 ROOT_DIR=$(cd "$SCRIPT_DIR/.." && pwd)
-MANIFEST_PATH="$ROOT_DIR/src/7thShadow/tracks.json"
+MANIFEST_PATH="$ROOT_DIR/src/$project_id/tracks.json"
 
 require_command jq
 require_command npx
@@ -42,7 +82,7 @@ if [[ ! -f $MANIFEST_PATH ]]; then
   exit 1
 fi
 
-track_json=$(jq -ce --arg track_id "$track_id" '.[] | select(.trackId == $track_id)' "$MANIFEST_PATH")
+track_json=$(jq -ce --arg track_id "$track_id" '.[] | select(.trackId == $track_id)' "$MANIFEST_PATH" || true)
 
 if [[ -z $track_json ]]; then
   echo "Track $track_id was not found in $MANIFEST_PATH" >&2
@@ -69,7 +109,7 @@ fi
 
 mkdir -p "$output_dir"
 
-temp_dir=$(mktemp -d "${TMPDIR:-/tmp}/seventh-shadow-${track_id}.XXXXXX")
+temp_dir=$(mktemp -d "${TMPDIR:-/tmp}/${project_slug}-${track_id}.XXXXXX")
 cleanup() {
   rm -rf "$temp_dir"
 }
@@ -87,6 +127,7 @@ audio_duration=$(ffprobe \
   -of default=nokey=1:noprint_wrappers=1 \
   "$audio_path")
 
+echo "Project: $project_id"
 echo "Track: $track_id - $title"
 echo "Composition: $composition_id"
 echo "Lyrics: $lyrics_file"

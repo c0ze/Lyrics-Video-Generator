@@ -1,0 +1,26 @@
+[
+  {
+    "trackId": "01",
+    "title": "Acolytes",
+    "compositionId": "PaganAcolytes-01",
+    "lyricsFile": "Pagan/Acolytes/01 - Acolytes.lrc",
+    "audioFile": "Pagan/Acolytes/01 - Acolytes.flac",
+    "coverImageFile": "Pagan/Acolytes/cover.jpg"
+  },
+  {
+    "trackId": "02",
+    "title": "Sign of the Heathen Cult",
+    "compositionId": "PaganAcolytes-02",
+    "lyricsFile": "Pagan/Acolytes/02 - Sign_of_the_Heathen Cult.lrc",
+    "audioFile": "Pagan/Acolytes/02 - Sign_of_the_Heathen Cult.flac",
+    "coverImageFile": "Pagan/Acolytes/cover.jpg"
+  },
+  {
+    "trackId": "03",
+    "title": "Averse to His Minions",
+    "compositionId": "PaganAcolytes-03",
+    "lyricsFile": "Pagan/Acolytes/03 - Averse_to_His_Minions.lrc",
+    "audioFile": "Pagan/Acolytes/03 - Averse_to_His_Minions.flac",
+    "coverImageFile": "Pagan/Acolytes/cover.jpg"
+  }
+]
