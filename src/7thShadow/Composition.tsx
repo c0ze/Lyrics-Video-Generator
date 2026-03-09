@@ -1,5 +1,6 @@
 import {
   AbsoluteFill,
+  Easing,
   useCurrentFrame,
   useVideoConfig,
   interpolate,
@@ -35,10 +36,25 @@ const BACKGROUND_BRIGHTNESS = 0.78;
 const BACKGROUND_CONTRAST = 0.92;
 const VIGNETTE_ALPHA = 0.82;
 const CURRENT_LINE_ENTRY_FRAMES = 10;
-const PREVIOUS_LINE_FADE_FRAMES = 18;
-const CURRENT_LINE_START_Y = 42;
-const CURRENT_LINE_END_Y = -72;
-const PREVIOUS_LINE_END_Y = -118;
+const PREVIOUS_LINE_FADE_FRAMES = 22;
+const LYRIC_STAGE_HEIGHT = 320;
+const LYRIC_BLOCK_WIDTH = "76%";
+const LYRIC_STAGE_BOTTOM_OFFSET = 112;
+const CURRENT_LINE_START_Y = 28;
+const CURRENT_LINE_END_Y = -26;
+const PREVIOUS_LINE_MAX_BLUR = 7;
+
+const getLineExitEndY = (lineDuration: number) => {
+  if (lineDuration <= 1) {
+    return CURRENT_LINE_END_Y;
+  }
+
+  return (
+    CURRENT_LINE_END_Y +
+    ((CURRENT_LINE_END_Y - CURRENT_LINE_START_Y) / (lineDuration - 1)) *
+      PREVIOUS_LINE_FADE_FRAMES
+  );
+};
 
 // --- Sub-components ---
 
@@ -126,26 +142,49 @@ const LyricText = ({
   mode,
   progressFrame,
   duration,
+  exitEndY,
 }: {
   line: LyricLine;
   mode: "current" | "previous";
   progressFrame: number;
   duration: number;
+  exitEndY?: number;
 }) => {
   const { color, isChorus } = getLyricAccent(line.text);
-  const activeProgress = interpolate(progressFrame, [0, duration], [0, 1], {
-    extrapolateRight: "clamp",
-  });
+  const visibleDuration = Math.max(duration - 1, 1);
+  const activeProgress = interpolate(
+    progressFrame,
+    [0, visibleDuration],
+    [0, 1],
+    { extrapolateRight: "clamp" },
+  );
   const chorusGlow = isChorus
     ? "rgba(80, 255, 170, 0.5)"
     : "rgba(180, 240, 210, 0.24)";
+  const commonStyle = {
+    bottom: 0,
+    color,
+    fontFamily: lyricsFont,
+    fontSize: "3.25rem",
+    fontWeight: 400,
+    left: "50%",
+    lineHeight: 1.22,
+    margin: 0,
+    position: "absolute" as const,
+    textAlign: "center" as const,
+    whiteSpace: "pre-wrap" as const,
+    width: LYRIC_BLOCK_WIDTH,
+  };
 
   if (mode === "current") {
     const opacity = interpolate(
       progressFrame,
       [0, CURRENT_LINE_ENTRY_FRAMES],
       [0, 1],
-      { extrapolateRight: "clamp" },
+      {
+        easing: Easing.out(Easing.cubic),
+        extrapolateRight: "clamp",
+      },
     );
     const translateY = interpolate(
       activeProgress,
@@ -155,31 +194,28 @@ const LyricText = ({
     );
 
     return (
-      <h1
+      <div
         style={{
-          fontFamily: lyricsFont,
-          color,
-          fontSize: "3.25rem",
-          lineHeight: 1.22,
-          margin: 0,
-          maxWidth: "76%",
+          ...commonStyle,
           opacity,
-          textAlign: "center",
           textShadow: `0 0 16px ${chorusGlow}`,
-          transform: `translateY(${translateY}px)`,
-          whiteSpace: "pre-wrap",
+          transform: `translateX(-50%) translateY(${translateY}px)`,
+          transformOrigin: "center bottom",
         }}
       >
         {line.text}
-      </h1>
+      </div>
     );
   }
 
   const opacity = interpolate(
     progressFrame,
     [0, PREVIOUS_LINE_FADE_FRAMES],
-    [0.62, 0],
-    { extrapolateRight: "clamp" },
+    [0.78, 0],
+    {
+      easing: Easing.in(Easing.cubic),
+      extrapolateRight: "clamp",
+    },
   );
 
   if (opacity <= 0) {
@@ -189,28 +225,32 @@ const LyricText = ({
   const translateY = interpolate(
     progressFrame,
     [0, PREVIOUS_LINE_FADE_FRAMES],
-    [CURRENT_LINE_END_Y, PREVIOUS_LINE_END_Y],
+    [CURRENT_LINE_END_Y, exitEndY ?? CURRENT_LINE_END_Y],
     { extrapolateRight: "clamp" },
+  );
+  const blur = interpolate(
+    progressFrame,
+    [0, PREVIOUS_LINE_FADE_FRAMES],
+    [0, PREVIOUS_LINE_MAX_BLUR],
+    {
+      easing: Easing.in(Easing.quad),
+      extrapolateRight: "clamp",
+    },
   );
 
   return (
-    <h2
+    <div
       style={{
-        fontFamily: lyricsFont,
-        color,
-        fontSize: "2.65rem",
-        lineHeight: 1.18,
-        margin: 0,
-        maxWidth: "72%",
+        ...commonStyle,
+        filter: `blur(${blur}px)`,
         opacity,
-        textAlign: "center",
-        textShadow: `0 0 10px ${chorusGlow}`,
-        transform: `translateY(${translateY}px)`,
-        whiteSpace: "pre-wrap",
+        textShadow: `0 0 14px ${chorusGlow}`,
+        transform: `translateX(-50%) translateY(${translateY}px)`,
+        transformOrigin: "center bottom",
       }}
     >
       {line.text}
-    </h2>
+    </div>
   );
 };
 
@@ -260,12 +300,43 @@ export const SeventhShadowComp = ({
     currentLineIndex > 0 ? parsedLyrics[currentLineIndex - 1] : null;
   const previousLineDuration =
     currentLineIndex > 0 ? lineDurations[currentLineIndex - 1] : 0;
+  const previousLineExitEndY = getLineExitEndY(previousLineDuration);
   const shouldRenderPreviousLine =
     previousLine !== null &&
     currentLine !== null &&
     previousLine.startFrame + previousLineDuration >= currentLine.startFrame;
   const currentLineProgressFrame =
     currentLine !== null ? frame - currentLine.startFrame : 0;
+  let timedOutLineIndex = -1;
+
+  if (currentLineIndex === -1) {
+    for (let i = parsedLyrics.length - 1; i >= 0; i--) {
+      const line = parsedLyrics[i];
+      const lineDuration = lineDurations[i];
+      const fadeStartFrame = line.startFrame + lineDuration;
+      const fadeEndFrame = fadeStartFrame + PREVIOUS_LINE_FADE_FRAMES;
+      const nextLineStartFrame = parsedLyrics[i + 1]?.startFrame ?? Infinity;
+
+      if (fadeStartFrame >= nextLineStartFrame) {
+        continue;
+      }
+
+      if (frame >= fadeStartFrame && frame < fadeEndFrame) {
+        timedOutLineIndex = i;
+        break;
+      }
+    }
+  }
+
+  const timedOutLine =
+    timedOutLineIndex !== -1 ? parsedLyrics[timedOutLineIndex] : null;
+  const timedOutLineDuration =
+    timedOutLineIndex !== -1 ? lineDurations[timedOutLineIndex] : 0;
+  const timedOutLineProgressFrame =
+    timedOutLine !== null
+      ? frame - (timedOutLine.startFrame + timedOutLineDuration)
+      : 0;
+  const timedOutLineExitEndY = getLineExitEndY(timedOutLineDuration);
 
   // Determine if we are in a chorus (simple check for repeated phrase or high intensity sections)
   // "I yearn to be free" marks the chorus start usually
@@ -367,30 +438,50 @@ export const SeventhShadowComp = ({
       {/* Lyrics Layer */}
       <AbsoluteFill
         style={{
-          justifyContent: "flex-end",
-          alignItems: "center",
-          paddingBottom: "80px",
-          gap: "18px",
+          pointerEvents: "none",
           zIndex: 20,
         }}
       >
-        {shouldRenderPreviousLine && currentLine && previousLine && (
-          <LyricText
-            line={previousLine}
-            mode="previous"
-            progressFrame={currentLineProgressFrame}
-            duration={PREVIOUS_LINE_FADE_FRAMES}
-          />
-        )}
-        {currentLine && (
-          <LyricText
-            key={`${currentLine.startFrame}-current`}
-            line={currentLine}
-            mode="current"
-            progressFrame={currentLineProgressFrame}
-            duration={currentLineDuration}
-          />
-        )}
+        <div
+          style={{
+            height: `${LYRIC_STAGE_HEIGHT}px`,
+            bottom: `${LYRIC_STAGE_BOTTOM_OFFSET}px`,
+            left: 0,
+            overflow: "visible",
+            position: "absolute",
+            right: 0,
+            width: "100%",
+          }}
+        >
+          {shouldRenderPreviousLine && currentLine && previousLine && (
+            <LyricText
+              line={previousLine}
+              mode="previous"
+              progressFrame={currentLineProgressFrame}
+              duration={PREVIOUS_LINE_FADE_FRAMES}
+              exitEndY={previousLineExitEndY}
+            />
+          )}
+          {currentLine && (
+            <LyricText
+              key={`${currentLine.startFrame}-current`}
+              line={currentLine}
+              mode="current"
+              progressFrame={currentLineProgressFrame}
+              duration={currentLineDuration}
+            />
+          )}
+          {timedOutLine && (
+            <LyricText
+              key={`${timedOutLine.startFrame}-timeout`}
+              line={timedOutLine}
+              mode="previous"
+              progressFrame={timedOutLineProgressFrame}
+              duration={PREVIOUS_LINE_FADE_FRAMES}
+              exitEndY={timedOutLineExitEndY}
+            />
+          )}
+        </div>
       </AbsoluteFill>
     </AbsoluteFill>
   );
