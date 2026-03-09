@@ -4,7 +4,7 @@ export const SEVENTH_SHADOW_FPS = 30;
 export const SEVENTH_SHADOW_WIDTH = 1920;
 export const SEVENTH_SHADOW_HEIGHT = 1080;
 
-const FINAL_LINE_DURATION_IN_FRAMES = 150;
+const MAX_LINE_DURATION_IN_SECONDS = 5;
 
 export type SeventhShadowProps = {
   coverImageFile: string;
@@ -74,16 +74,34 @@ export const getLineDurationInFrames = (
   currentLine: LyricLine | null,
   nextLine: LyricLine | null,
   compositionDurationInFrames: number,
+  fps: number,
 ) => {
   if (!currentLine) {
     return 0;
   }
 
+  const maximumLineDurationInFrames = Math.max(
+    Math.round(MAX_LINE_DURATION_IN_SECONDS * fps),
+    1,
+  );
+
   if (!nextLine) {
-    return Math.max(compositionDurationInFrames - currentLine.startFrame, 1);
+    return Math.max(
+      Math.min(
+        compositionDurationInFrames - currentLine.startFrame,
+        maximumLineDurationInFrames,
+      ),
+      1,
+    );
   }
 
-  return Math.max(nextLine.startFrame - currentLine.startFrame, 1);
+  return Math.max(
+    Math.min(
+      nextLine.startFrame - currentLine.startFrame,
+      maximumLineDurationInFrames,
+    ),
+    1,
+  );
 };
 
 export const getCompositionDurationInFrames = (
@@ -92,9 +110,13 @@ export const getCompositionDurationInFrames = (
   audioDurationInSeconds?: number,
 ) => {
   const lastLine = lyrics[lyrics.length - 1];
+  const maximumLineDurationInFrames = Math.max(
+    Math.round(MAX_LINE_DURATION_IN_SECONDS * fps),
+    1,
+  );
   const lyricDurationInFrames = lastLine
-    ? lastLine.startFrame + FINAL_LINE_DURATION_IN_FRAMES
-    : FINAL_LINE_DURATION_IN_FRAMES;
+    ? lastLine.startFrame + maximumLineDurationInFrames
+    : maximumLineDurationInFrames;
 
   if (
     typeof audioDurationInSeconds !== "number" ||

@@ -225,12 +225,28 @@ export const SeventhShadowComp = ({
     () => parseLrc(lyricsText, fps),
     [lyricsText, fps],
   );
+  const lineDurations = useMemo(
+    () =>
+      parsedLyrics.map((line, index) =>
+        getLineDurationInFrames(
+          line,
+          parsedLyrics[index + 1] ?? null,
+          durationInFrames,
+          fps,
+        ),
+      ),
+    [parsedLyrics, durationInFrames, fps],
+  );
 
-  // Determine current line
-  // We find the last line that has started
   let currentLineIndex = -1;
   for (let i = parsedLyrics.length - 1; i >= 0; i--) {
-    if (frame >= parsedLyrics[i].startFrame) {
+    const line = parsedLyrics[i];
+    const lineDuration = lineDurations[i];
+
+    if (
+      frame >= line.startFrame &&
+      frame < line.startFrame + lineDuration
+    ) {
       currentLineIndex = i;
       break;
     }
@@ -238,18 +254,18 @@ export const SeventhShadowComp = ({
 
   const currentLine =
     currentLineIndex !== -1 ? parsedLyrics[currentLineIndex] : null;
+  const currentLineDuration =
+    currentLineIndex !== -1 ? lineDurations[currentLineIndex] : 0;
   const previousLine =
     currentLineIndex > 0 ? parsedLyrics[currentLineIndex - 1] : null;
-  const nextLine =
-    currentLineIndex !== -1 && currentLineIndex < parsedLyrics.length - 1
-      ? parsedLyrics[currentLineIndex + 1]
-      : null;
-
-  const duration = getLineDurationInFrames(
-    currentLine,
-    nextLine,
-    durationInFrames,
-  );
+  const previousLineDuration =
+    currentLineIndex > 0 ? lineDurations[currentLineIndex - 1] : 0;
+  const shouldRenderPreviousLine =
+    previousLine !== null &&
+    currentLine !== null &&
+    previousLine.startFrame + previousLineDuration >= currentLine.startFrame;
+  const currentLineProgressFrame =
+    currentLine !== null ? frame - currentLine.startFrame : 0;
 
   // Determine if we are in a chorus (simple check for repeated phrase or high intensity sections)
   // "I yearn to be free" marks the chorus start usually
@@ -358,11 +374,11 @@ export const SeventhShadowComp = ({
           zIndex: 20,
         }}
       >
-        {previousLine && currentLine && (
+        {shouldRenderPreviousLine && currentLine && previousLine && (
           <LyricText
             line={previousLine}
             mode="previous"
-            progressFrame={frame - currentLine.startFrame}
+            progressFrame={currentLineProgressFrame}
             duration={PREVIOUS_LINE_FADE_FRAMES}
           />
         )}
@@ -371,8 +387,8 @@ export const SeventhShadowComp = ({
             key={`${currentLine.startFrame}-current`}
             line={currentLine}
             mode="current"
-            progressFrame={frame - currentLine.startFrame}
-            duration={duration}
+            progressFrame={currentLineProgressFrame}
+            duration={currentLineDuration}
           />
         )}
       </AbsoluteFill>
