@@ -178,23 +178,78 @@ const MIST_BLOB_COUNT = 12;
 
 const MistLayer = ({ mistColor }: { mistColor: string }) => {
   const frame = useCurrentFrame();
+  const { durationInFrames, fps } = useVideoConfig();
   const blobs = useMemo(() => {
-    return Array.from({ length: MIST_BLOB_COUNT }, (_, i) => ({
-      cx: random(`mist-cx-${i}`) * 100,
-      cy: random(`mist-cy-${i}`) * 100,
-      radius: random(`mist-r-${i}`) * 520 + 360,
-      orbitX: random(`mist-ox-${i}`) * 160 + 90,
-      orbitY: random(`mist-oy-${i}`) * 120 + 60,
-      speed: random(`mist-sp-${i}`) * 0.004 + 0.002,
-      phase: random(`mist-ph-${i}`) * Math.PI * 2,
-    }));
+    return Array.from({ length: MIST_BLOB_COUNT }, (_, i) => {
+      const edgeSeed = random(`mist-edge-${i}`);
+      const phase = random(`mist-ph-${i}`) * Math.PI * 2;
+
+      if (edgeSeed < 0.25) {
+        return {
+          cx: random(`mist-cx-${i}`) * 18 - 10,
+          cy: random(`mist-cy-${i}`) * 85 + 7.5,
+          radius: random(`mist-r-${i}`) * 420 + 300,
+          orbitX: random(`mist-ox-${i}`) * 55 + 20,
+          orbitY: random(`mist-oy-${i}`) * 85 + 25,
+          phase,
+          speed: random(`mist-sp-${i}`) * 0.0014 + 0.0008,
+        };
+      }
+
+      if (edgeSeed < 0.5) {
+        return {
+          cx: random(`mist-cx-${i}`) * 18 + 92,
+          cy: random(`mist-cy-${i}`) * 85 + 7.5,
+          radius: random(`mist-r-${i}`) * 420 + 300,
+          orbitX: random(`mist-ox-${i}`) * 55 + 20,
+          orbitY: random(`mist-oy-${i}`) * 85 + 25,
+          phase,
+          speed: random(`mist-sp-${i}`) * 0.0014 + 0.0008,
+        };
+      }
+
+      if (edgeSeed < 0.75) {
+        return {
+          cx: random(`mist-cx-${i}`) * 85 + 7.5,
+          cy: random(`mist-cy-${i}`) * 18 - 10,
+          radius: random(`mist-r-${i}`) * 420 + 300,
+          orbitX: random(`mist-ox-${i}`) * 85 + 25,
+          orbitY: random(`mist-oy-${i}`) * 55 + 20,
+          phase,
+          speed: random(`mist-sp-${i}`) * 0.0014 + 0.0008,
+        };
+      }
+
+      return {
+        cx: random(`mist-cx-${i}`) * 85 + 7.5,
+        cy: random(`mist-cy-${i}`) * 18 + 92,
+        radius: random(`mist-r-${i}`) * 420 + 300,
+        orbitX: random(`mist-ox-${i}`) * 85 + 25,
+        orbitY: random(`mist-oy-${i}`) * 55 + 20,
+        phase,
+        speed: random(`mist-sp-${i}`) * 0.0014 + 0.0008,
+      };
+    });
   }, []);
+  const fadeFrames = Math.min(fps * 15, Math.floor(durationInFrames / 2));
+  const fadeInOpacity = interpolate(frame, [0, fadeFrames], [0, 0.72], {
+    extrapolateRight: "clamp",
+  });
+  const fadeOutOpacity = interpolate(
+    frame,
+    [durationInFrames - fadeFrames, durationInFrames],
+    [1, 0],
+    {
+      extrapolateLeft: "clamp",
+    },
+  );
+  const mistOpacity = fadeInOpacity * fadeOutOpacity;
 
   return (
     <AbsoluteFill
       style={{
         mixBlendMode: "screen",
-        opacity: 0.9,
+        opacity: mistOpacity,
         pointerEvents: "none",
         zIndex: 6,
       }}
@@ -216,7 +271,7 @@ const MistLayer = ({ mistColor }: { mistColor: string }) => {
               background: `radial-gradient(circle, ${mistColor} 0%, rgba(255, 255, 255, 0) 74%)`,
               transform: "translate(-50%, -50%)",
               filter: `blur(${56 + index * 8}px)`,
-              opacity: 0.96,
+              opacity: 0.82,
             }}
           />
         );
@@ -267,7 +322,7 @@ const LyricText = ({
     margin: 0,
     position: "absolute" as const,
     textAlign: "center" as const,
-    WebkitTextStroke: "1px rgba(0, 0, 0, 0.45)",
+    WebkitTextStroke: "1.4px rgba(0, 0, 0, 0.62)",
     whiteSpace: "pre-wrap" as const,
     width: LYRIC_BLOCK_WIDTH,
   };
@@ -286,7 +341,7 @@ const LyricText = ({
         style={{
           ...commonStyle,
           opacity,
-          textShadow: `0 0 16px ${glowColor}, 0 0 4px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.6)`,
+          textShadow: `0 0 16px ${glowColor}, 0 0 7px rgba(0, 0, 0, 0.92), 0 2px 6px rgba(0, 0, 0, 0.72), 0 0 18px rgba(0, 0, 0, 0.44)`,
           transform: `translateX(-50%) translateY(${translateY}px)`,
           transformOrigin: "center bottom",
         }}
@@ -322,7 +377,7 @@ const LyricText = ({
         ...commonStyle,
         filter: `blur(${blur}px)`,
         opacity,
-        textShadow: `0 0 14px ${glowColor}, 0 0 4px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.6)`,
+        textShadow: `0 0 14px ${glowColor}, 0 0 6px rgba(0, 0, 0, 0.9), 0 2px 5px rgba(0, 0, 0, 0.68), 0 0 14px rgba(0, 0, 0, 0.4)`,
         transform: `translateX(-50%) translateY(${translateY}px)`,
         transformOrigin: "center bottom",
       }}
