@@ -72,5 +72,5 @@ echo "Project: $project_id"
 echo "Output directory: $output_dir"
 
 while IFS= read -r track_id; do
-  "$SCRIPT_DIR/render-track.sh" --project "$project_id" "$track_id" "$output_dir"
+  "$SCRIPT_DIR/render-track.sh" --project "$project_id" "$track_id" "$output_dir" </dev/null
 done < <(jq -r '.[].trackId' "$MANIFEST_PATH")

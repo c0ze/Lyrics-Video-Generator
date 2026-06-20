@@ -1,0 +1,26 @@
+[
+  {
+    "trackId": "01",
+    "title": "Gwannad i-Lû",
+    "compositionId": "Arda-01",
+    "songId": "gwannad-i-lu",
+    "lyricsFile": "Arda/lyrics/gwannad-i-lu.lrc",
+    "audioFile": "Arda/audio/gwannad-i-lu.flac"
+  },
+  {
+    "trackId": "02",
+    "title": "I Dhae Odog",
+    "compositionId": "Arda-02",
+    "songId": "i-dhae-odog",
+    "lyricsFile": "Arda/lyrics/i-dhae-odog.lrc",
+    "audioFile": "Arda/audio/i-dhae-odog.flac"
+  },
+  {
+    "trackId": "03",
+    "title": "I Dann Haer",
+    "compositionId": "Arda-03",
+    "songId": "i-dann-haer",
+    "lyricsFile": "Arda/lyrics/i-dann-haer.lrc",
+    "audioFile": "Arda/audio/i-dann-haer.flac"
+  }
+]

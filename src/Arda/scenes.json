@@ -1,0 +1,66 @@
+{
+  "style": "Alan Lee and John Howe style watercolour and ink fantasy illustration, Tolkien Middle-earth, soft muted palette, delicate linework, atmospheric and melancholic, depth and drifting mist, painterly. The artwork fills the entire frame edge to edge, full-bleed, absolutely no black bars, no letterbox, no borders, no frame, no text, no lettering, no watermark, no signature.",
+  "songs": {
+    "gwannad-i-lu": {
+      "palette": "muted twilight gold and deep teal-black, autumnal, fading evening light",
+      "images": [
+        { "id": "01", "prompt": "an autumn forest at dusk, golden leaves drifting down onto cold grey earth, bare dark branches, low mist between the trees" },
+        { "id": "02", "prompt": "a slender white elven ship moored at an ancient grey stone harbour beside a still pale sea under a wide colourless sky, the Grey Havens, quiet and vast" },
+        { "id": "03", "prompt": "a lone cloaked figure standing on a stone quay watching a luminous white ship sail away westward across a wide grey sea, soft light trailing on the water" },
+        { "id": "04", "prompt": "dawn light breaking gold over distant mountains, a solitary robed figure on a high ridge reaching one hand toward the rising sun" },
+        { "id": "05", "prompt": "ruined elven halls and broken carved statues standing in grey rain, crumbling mossy stonework, desolation and silence" },
+        { "id": "06", "prompt": "a vast ancient tree with deep furrowed bark beside a ring of dying embers in cold blue twilight, faint drifting ash" },
+        { "id": "07", "prompt": "a white ship dwindling into a radiant golden western horizon at the last light, sea and sky merging into gold, utterly serene" }
+      ],
+      "scenes": [
+        { "startLineIndex": 0, "imageId": "01", "motion": "zoom-in" },
+        { "startLineIndex": 4, "imageId": "02", "motion": "pan-right" },
+        { "startLineIndex": 8, "imageId": "03", "motion": "zoom-out" },
+        { "startLineIndex": 10, "imageId": "04", "motion": "pan-up" },
+        { "startLineIndex": 12, "imageId": "05", "motion": "zoom-in" },
+        { "startLineIndex": 16, "imageId": "06", "motion": "zoom-in" },
+        { "startLineIndex": 18, "imageId": "07", "motion": "zoom-out" }
+      ]
+    },
+    "i-dhae-odog": {
+      "palette": "moonlit silver and deep night-blue, cold, sorrowful, faint starlight",
+      "images": [
+        { "id": "01", "prompt": "an elven maiden alone beside a moonlit white marble fountain at night, waiting, pale silver light, long shadows across still water" },
+        { "id": "02", "prompt": "fading stars over a dark overgrown moonlit garden, faint drifting fireflies, a distant still silhouette of a maiden among shadowed hedges" },
+        { "id": "03", "prompt": "a weeping night sky, the full moon veiled in thin cloud, a maiden's pale form glimmering faint like a guttering candle on a high balcony" },
+        { "id": "04", "prompt": "a storm-torn night sky rending open with pale lightning over a black harbour and restless dark water, desperate and immense" },
+        { "id": "05", "prompt": "an elven maiden dissolving softly into moonlight and shadow at the water's edge, fading away, a single silver gleam remaining" }
+      ],
+      "scenes": [
+        { "startLineIndex": 0, "imageId": "01", "motion": "zoom-in" },
+        { "startLineIndex": 4, "imageId": "02", "motion": "pan-right" },
+        { "startLineIndex": 8, "imageId": "03", "motion": "zoom-in" },
+        { "startLineIndex": 12, "imageId": "04", "motion": "zoom-out" },
+        { "startLineIndex": 16, "imageId": "05", "motion": "zoom-in" }
+      ]
+    },
+    "i-dann-haer": {
+      "palette": "ashen ember-red and cold grey, near-black, funereal, last firelight",
+      "images": [
+        { "id": "01", "prompt": "an immortal elf standing alone in a vast empty hall of faded tapestries and forgotten carved names, grey dawn light, dust in the air" },
+        { "id": "02", "prompt": "long silent grey halls with a single guttering candle, empty carved chairs, motes drifting in still cold air" },
+        { "id": "03", "prompt": "a lone robed figure standing beneath a cold vast star-strewn night sky, the darkened sleeping world small and far below" },
+        { "id": "04", "prompt": "a kneeling weeping figure in falling grey rain within a ruined garden, ashen muted tones, bare trees" },
+        { "id": "05", "prompt": "a figure kneeling in deep long-fading darkness beside the last dying embers of a fire, a faint unhealed glow" },
+        { "id": "06", "prompt": "a single distant silhouette almost swallowed by encroaching shadow, nearly gone, a last faint ember of light" },
+        { "id": "07", "prompt": "the last lone figure in a darkening empty world, faint ember light sinking slowly into total black" }
+      ],
+      "scenes": [
+        { "startLineIndex": 0, "imageId": "01", "motion": "zoom-in" },
+        { "startLineIndex": 4, "imageId": "02", "motion": "pan-left" },
+        { "startLineIndex": 8, "imageId": "03", "motion": "zoom-out" },
+        { "startLineIndex": 12, "imageId": "04", "motion": "zoom-in" },
+        { "startLineIndex": 16, "imageId": "05", "motion": "zoom-in" },
+        { "startLineIndex": 19, "imageId": "03", "motion": "zoom-out" },
+        { "startLineIndex": 23, "imageId": "06", "motion": "zoom-in" },
+        { "startLineIndex": 24, "imageId": "03", "motion": "pan-right" },
+        { "startLineIndex": 28, "imageId": "07", "motion": "zoom-in" }
+      ]
+    }
+  }
+}
