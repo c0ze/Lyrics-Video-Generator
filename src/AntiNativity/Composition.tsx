@@ -117,7 +117,8 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
 
       {/* scene track */}
       {scenes.map((s) => {
-        if (frame < s.start - CROSSFADE || frame >= s.end) return null;
+        const cf = s.id === "S21" ? 90 : CROSSFADE; // long morph from the S20 crash into the cathedral
+        if (frame < s.start - cf || frame >= s.end) return null;
         const p = (frame - s.start) / Math.max(s.end - s.start, 1);
         const kb = kenBurns(s.motion, p);
         const opacity =
@@ -125,7 +126,7 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
             ? frame >= s.start
               ? 1
               : 0
-            : interpolate(frame, [s.start - CROSSFADE, s.start], [0, 1], {
+            : interpolate(frame, [s.start - cf, s.start], [0, 1], {
                 extrapolateLeft: "clamp",
                 extrapolateRight: "clamp",
               });
@@ -142,13 +143,22 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
           />
         );
         const fx = new Set(s.effects);
+        // S20 (the crash) holds clear, then every corruption ramps in together after ~30%
+        const crash = clamp01((p - 0.3) * 1.7);
         let layer: React.ReactNode = painting;
         if (fx.has("wireframe-reveal")) layer = <WireframeReveal reveal={Math.sin(p * Math.PI)}>{layer}</WireframeReveal>;
-        if (fx.has("recursion-feedback")) layer = <RecursionFeedback progress={p} childrenNode={layer} />;
-        if (fx.has("rgb-split"))
-          layer = <RGBSplit amount={2 + (s.temp === "white" ? 8 : 4) * Math.sin(p * Math.PI)}>{layer}</RGBSplit>;
+        if (fx.has("recursion-feedback") && (s.id !== "S20" || crash > 0.02)) {
+          const depth = s.id === "S20" ? Math.max(1, Math.round(1 + crash * 5)) : 6;
+          layer = (
+            <RecursionFeedback progress={s.id === "S20" ? crash : p} depth={depth} childrenNode={layer} />
+          );
+        }
+        if (fx.has("rgb-split")) {
+          const amount = s.id === "S20" ? crash * 12 : 2 + (s.temp === "white" ? 8 : 4) * Math.sin(p * Math.PI);
+          layer = <RGBSplit amount={amount}>{layer}</RGBSplit>;
+        }
         if (fx.has("glitch") || fx.has("sixth-finger") || fx.has("multi-version")) {
-          const intensity = s.id === "S20" ? clamp01(p * 1.2) : 0.35 + 0.25 * Math.sin(p * Math.PI);
+          const intensity = s.id === "S20" ? crash : 0.35 + 0.25 * Math.sin(p * Math.PI);
           layer = <Glitch intensity={intensity}>{layer}</Glitch>;
         }
         // failing-render flicker (e.g. the weeping Ophelia) — occasional dropouts + subtle pulse
