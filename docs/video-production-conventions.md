@@ -149,9 +149,13 @@ scene. Don't bake the garble into the still.
 
 - **Audio: AAC-LC encoded from the WAV master**, `-b:a 384k -ar 48000 -ac 2` (YouTube max). Set via
   per-track `audioBitrate`/`audioSampleRate` in `tracks.json`; `render-track.sh` honors them.
-- **Render:** `REMOTION_CONCURRENCY=4 ./scripts/render-track.sh --project <Project> <NN>` — the
-  concurrency cap avoids OffthreadVideo decode hiccups; the script renders H.264 then muxes the
-  AAC-from-WAV (`-map 0:v:0 -map 1:a:0`, `+faststart`).
+- **Render:** `REMOTION_CONCURRENCY=4 caffeinate -dims ./scripts/render-track.sh --project <Project> <NN>`.
+  - `REMOTION_CONCURRENCY=4` steadies OffthreadVideo decode (avoids hiccups).
+  - **`caffeinate -dims` is essential for long renders.** A 1080p60 render with OffthreadVideo (Veo)
+    scenes can run **1–3 hours**, and macOS will **kill it if the machine sleeps** — one overnight
+    render stalled dead at 87 % (frame 18124/20880) when the Mac slept, with no salvageable partial
+    (Remotion only finalizes the mp4 at 100 %). `caffeinate -dims` keeps it awake for the whole job.
+  - The script renders H.264 then muxes the AAC-from-WAV (`-map 0:v:0 -map 1:a:0`, `+faststart`).
 - **Output:** `renders/<Project>/NN - Title.mp4`.
 
 ## 11. Workflow & helpers

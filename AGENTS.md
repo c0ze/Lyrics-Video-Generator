@@ -31,7 +31,7 @@ Co-Authored-By: Codex GPT-5 <noreply@openai.com>
 - `scripts/render-track.sh` and `scripts/render-album.sh` accept `--project <project-id>`.
 - Default project is `7thShadow` when `--project` is omitted.
 - Final outputs must be named `NN - Title.mp4`, matching the manifest title.
-- Per-track `audioBitrate`/`audioSampleRate` (in `tracks.json`) override the AAC encode; export `REMOTION_CONCURRENCY=4` for projects with OffthreadVideo (Veo) scenes.
+- Per-track `audioBitrate`/`audioSampleRate` (in `tracks.json`) override the AAC encode. For projects with OffthreadVideo (Veo) scenes, render as `REMOTION_CONCURRENCY=4 caffeinate -dims ./scripts/render-track.sh --project <id> <NN>` — the concurrency cap steadies video decode, and `caffeinate -dims` keeps the Mac awake (a long 1080p60+OffthreadVideo render is killed if the machine sleeps; no partial is salvageable).
 
 ## Available Projects
 - `7thShadow` — *Alienation By Design* (static-lyric style)
