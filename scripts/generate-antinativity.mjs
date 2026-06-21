@@ -78,9 +78,12 @@ async function generateWithRetry(model, scene) {
   for (let attempt = 1; attempt <= 4; attempt++) {
     try { return await generateOnce(model, scene); }
     catch (err) {
-      if (attempt === 4) throw err;
+      const msg = String(err?.message || err);
+      // fail fast on permanent errors (wrong model id, auth); retry transient ones ("no image", 5xx, rate limit)
+      const permanent = /not.?found|unsupported|invalid argument|permission|api key/i.test(msg);
+      if (permanent || attempt === 4) throw err;
       const wait = 2 ** attempt * 1500;
-      console.warn(`  ! ${scene.id} attempt ${attempt} failed (${String(err.message).slice(0, 120)}); retry in ${wait}ms`);
+      console.warn(`  ! ${scene.id} attempt ${attempt} failed (${msg.slice(0, 120)}); retry in ${wait}ms`);
       await sleep(wait);
     }
   }
@@ -94,7 +97,7 @@ async function run() {
   // Resolve the model by generating the first scene; cache that buffer so no image is made twice.
   const probe = todo[0];
   let probeBuffer = null;
-  const model = await resolveImageModel(async (id) => { probeBuffer = await generateOnce(id, probe); return true; });
+  const model = await resolveImageModel(async (id) => { probeBuffer = await generateWithRetry(id, probe); return true; });
   console.log("Using image model:", model);
 
   let made = 0;
