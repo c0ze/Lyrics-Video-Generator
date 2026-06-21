@@ -236,7 +236,15 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
             const visible = Math.min(nextStart - start, 7 * fps);
             const prog = frame - start;
             if (prog > visible) return null;
-            const op = interpolate(prog, [0, 12, visible - 14, visible], [0, 1, 1, 0], {
+            // ink-in left-to-right, as if written by hand (matches the Arda reveal feel, ~1.1s)
+            const revealFrames = Math.min(66, Math.max(20, visible - 16));
+            const reveal = clamp01(prog / revealFrames);
+            const solid = reveal * 100;
+            const mask =
+              reveal < 1
+                ? `linear-gradient(90deg, #000 ${solid}%, rgba(0,0,0,0) ${Math.min(solid + 8, 100)}%)`
+                : "none";
+            const op = interpolate(prog, [0, 8, visible - 14, visible], [0, 1, 1, 0], {
               extrapolateLeft: "clamp",
               extrapolateRight: "clamp",
             });
@@ -247,7 +255,7 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
                   position: "absolute",
                   left: 0,
                   right: 0,
-                  bottom: 150,
+                  bottom: 140,
                   textAlign: "center",
                   opacity: op,
                   padding: "0 8%",
@@ -255,13 +263,18 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
               >
                 <div
                   style={{
+                    display: "inline-block",
+                    maxWidth: "84%",
                     fontFamily: FONT_LYRIC,
                     fontStyle: "italic",
                     fontWeight: 600,
                     fontSize: 52,
                     lineHeight: 1.35,
                     color: c.text,
-                    textShadow: `0 0 26px ${c.glow}, 0 3px 12px rgba(0,0,0,0.92)`,
+                    textShadow: `0 1px 2px rgba(0,0,0,1), 0 2px 12px rgba(0,0,0,0.95), 0 0 24px ${c.glow}`,
+                    WebkitTextStroke: "0.6px rgba(0,0,0,0.55)",
+                    WebkitMaskImage: mask,
+                    maskImage: mask,
                     whiteSpace: "pre-line",
                   }}
                 >
@@ -307,9 +320,10 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
               fontFamily: FONT_LYRIC,
               fontStyle: "italic",
               fontSize: 34,
-              color: "#9fb0c0",
+              color: "#cdd6df",
               marginTop: 14,
               letterSpacing: "0.12em",
+              textShadow: "0 2px 16px rgba(0,0,0,0.98), 0 0 10px rgba(0,0,0,0.9)",
             }}
           >
             The Seventh Shadow — Anti-Nativity
