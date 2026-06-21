@@ -22,7 +22,8 @@ export interface SceneDef {
     | "crane-up"
     | "fall"
     | "orbit"
-    | "tilt-up";
+    | "tilt-up"
+    | "recede";
   transition: "crossfade" | "glitch-cut" | "blowout" | "hard-cut" | "none";
   effects: string[];
   title: string;

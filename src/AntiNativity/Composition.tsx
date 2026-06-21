@@ -7,6 +7,7 @@ import {
   delayRender,
   Img,
   interpolate,
+  random,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
@@ -57,6 +58,9 @@ const kenBurns = (motion: SceneDef["motion"], p: number) => {
       return { s: lerp(1.05, 1.3, p), x: 0, y: lerp(-4, 6, p) };
     case "orbit":
       return { s: 1.16, x: Math.sin(p * Math.PI) * 3, y: Math.cos(p * Math.PI) * 1.5 };
+    case "recede":
+      // zoom out + slight downward drift — she is pulled away, falling into the distance
+      return { s: lerp(1.4, 1.1, p), x: 0, y: lerp(-3, 4, p) };
     case "push-in":
     default:
       return { s: lerp(1.05, 1.18, p), x: 0, y: 0 };
@@ -147,8 +151,13 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
           const intensity = s.id === "S20" ? clamp01(p * 1.2) : 0.35 + 0.25 * Math.sin(p * Math.PI);
           layer = <Glitch intensity={intensity}>{layer}</Glitch>;
         }
+        // failing-render flicker (e.g. the weeping Ophelia) — occasional dropouts + subtle pulse
+        const flick = fx.has("flicker")
+          ? (random(`flk${s.id}${Math.floor(frame / 3)}`) < 0.12 ? 0.5 : 1) *
+            (0.9 + 0.1 * Math.sin(frame * 1.3))
+          : 1;
         return (
-          <AbsoluteFill key={s.id} style={{ opacity, overflow: "hidden" }}>
+          <AbsoluteFill key={s.id} style={{ opacity: opacity * flick, overflow: "hidden" }}>
             {layer}
           </AbsoluteFill>
         );
