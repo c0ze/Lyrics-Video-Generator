@@ -24,8 +24,10 @@ npm install
 - `src/projects.ts`: Registry of all lyric-video projects loaded into Remotion Studio.
 - `src/7thShadow/tracks.json`: The Seventh Shadow track manifest.
 - `src/Pagan/Acolytes/tracks.json`: Pagan / Acolytes track manifest.
-- `public/7thShadow/`: The Seventh Shadow cover art, `.lrc` files, and `.flac` masters.
-- `public/Pagan/Acolytes/`: Pagan / Acolytes cover art, `.lrc` files, and `.flac` masters.
+- `src/Pagan/HeathenUpheaval/tracks.json`: Pagan / Heathen Upheaval track manifest.
+- `public/7thShadow/`: The Seventh Shadow backdrop, `.lrc` files, and `.flac` masters.
+- `public/Pagan/Acolytes/`: Pagan / Acolytes backdrop, `.lrc` files, and `.flac` masters.
+- `public/Pagan/HeathenUpheaval/`: Pagan / Heathen Upheaval backdrop, `.lrc` files, and `.flac` masters.
 - `scripts/render-track.sh`: One-track render and mux pipeline.
 - `scripts/render-album.sh`: Batch render for the full album.
 - `src/PaganIntro.tsx`: Test board only. It is not part of the album render pipeline.
@@ -33,9 +35,10 @@ npm install
 ## Adding a New Project
 
 1. Add album assets under `public/<project>/...`.
-2. Create `src/<project>/tracks.json` with `trackId`, `title`, `compositionId`, `lyricsFile`, `audioFile`, and `coverImageFile`.
-3. Create `src/<project>/tracks.ts` that exports a `LyricVideoProject`.
-4. Register that project in `src/projects.ts`.
+2. Add `backdrop.png`, `backdrop.jpg`, or `backdrop.jpeg` inside `public/<project>/`.
+3. Create `src/<project>/tracks.json` with `trackId`, `title`, `compositionId`, `lyricsFile`, and `audioFile`.
+4. Create `src/<project>/tracks.ts` that exports a `LyricVideoProject`.
+5. Register that project in `src/projects.ts`.
 
 Project IDs are path-like values such as `7thShadow` or `Pagan/Acolytes`. Composition IDs stay flat and colon-free, for example `PaganAcolytes-01`.
 
@@ -47,7 +50,7 @@ Open Remotion Studio:
 npm run dev
 ```
 
-Current album compositions are named `SeventhShadow-01`, `SeventhShadow-02`, and `PaganAcolytes-01`, `PaganAcolytes-02`, and so on. `PaganIntro` remains available in Studio for experiments.
+Current album compositions are named `SeventhShadow-01`, `PaganAcolytes-01`, `PaganHeathenUpheaval-02`, and so on. `PaganIntro` remains available in Studio for experiments.
 
 ## Render Workflow
 

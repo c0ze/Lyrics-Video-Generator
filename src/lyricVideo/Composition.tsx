@@ -388,8 +388,8 @@ const LyricText = ({
 };
 
 export const LyricVideoComposition = ({
+  backdropImageFile,
   bannerText,
-  coverImageFile,
   lyricsText,
   theme,
 }: LyricVideoProps) => {
@@ -564,7 +564,7 @@ export const LyricVideoComposition = ({
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
       <AbsoluteFill style={{ overflow: "hidden" }}>
         <Img
-          src={staticFile(coverImageFile)}
+          src={staticFile(backdropImageFile)}
           style={{
             width: "100%",
             height: "100%",

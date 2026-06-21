@@ -3,7 +3,6 @@ import type { ComponentType } from "react";
 export interface LyricVideoTrack {
   audioFile: string;
   compositionId: string;
-  coverImageFile: string;
   lyricsFile: string;
   title: string;
   trackId: string;
@@ -38,14 +37,15 @@ export interface LyricVideoTheme {
 }
 
 export interface LyricVideoProps {
+  backdropImageFile: string;
   bannerText: string;
-  coverImageFile: string;
   lyricsText: string;
   theme?: LyricVideoTheme;
 }
 
 export interface LyricVideoProject {
-  baseProps: Omit<LyricVideoProps, "coverImageFile" | "lyricsText">;
+  backdropImageCandidates: string[];
+  baseProps: Omit<LyricVideoProps, "backdropImageFile" | "lyricsText">;
   component: ComponentType<Record<string, unknown>>;
   displayName: string;
   projectId: string;

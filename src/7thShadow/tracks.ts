@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import { LyricVideoComposition } from "../lyricVideo/Composition";
+import { getBackdropImageCandidates } from "../lyricVideo/backdrop";
 import type { LyricVideoProject, LyricVideoTrack } from "../lyricVideo/types";
 import trackManifest from "./tracks.json";
 
@@ -13,6 +14,7 @@ export const seventhShadowProject: LyricVideoProject = {
   tracks: seventhShadowTracks,
   component:
     LyricVideoComposition as unknown as ComponentType<Record<string, unknown>>,
+  backdropImageCandidates: getBackdropImageCandidates("7thShadow", "jpg"),
   video: {
     fps: 60,
     width: 1920,
