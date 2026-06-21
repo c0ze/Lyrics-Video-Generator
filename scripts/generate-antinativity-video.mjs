@@ -31,6 +31,7 @@ const MOTION = {
   S18: "Slow subtle motion: a single luminous tear wells and slides down her cheek; she blinks slowly; faint cyan flicker; otherwise almost still; melancholic, cinematic.",
   S3: "She walks slowly forward down the cathedral nave toward the camera; her gown and long hair drift; cold neon rain falls through the nave; slow cinematic dolly.",
   S6: "Her hand presses slowly against the inside of the screen; where her fingertips meet the glass the image breaks into drifting sparks and pixels; eerie, slow.",
+  S10: "The two translucent spectres slowly turn and circle each other in a ghostly, dreamlike dance, their semi-transparent forms drifting and trailing ethereal light; they never touch; slow, mournful, floating.",
   S0: "Cold neon rain falls through the empty cathedral; the camera pushes slowly toward the distant dark mirror; candle flames flicker; volumetric light drifts.",
   S16: "Neon rain sheets down the chrome as she slowly lifts her face into it; droplets run down; slow and cinematic.",
 };

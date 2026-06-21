@@ -43,7 +43,7 @@ const SCENES = (scenesJson as unknown as ScenesFile).songs;
 const clamp01 = (t: number) => Math.min(1, Math.max(0, t));
 const lerp = (a: number, b: number, t: number) => a + (b - a) * clamp01(t);
 const CROSSFADE = 30; // 0.5s @60
-const VIDEO_SCENES = new Set(["S3", "S6", "S18"]); // scenes backed by a Veo image-to-video clip
+const VIDEO_SCENES = new Set(["S3", "S6", "S10", "S18"]); // scenes backed by a Veo image-to-video clip
 const VEO_USABLE_SEC = 6.8; // play only the first ~6.8s of each 8s clip (drop the drifting tail)
 
 const kenBurns = (motion: SceneDef["motion"], p: number) => {
