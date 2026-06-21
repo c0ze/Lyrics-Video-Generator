@@ -93,6 +93,8 @@ title=$(jq -r '.title' <<<"$track_json")
 composition_id=$(jq -r '.compositionId' <<<"$track_json")
 lyrics_file=$(jq -r '.lyricsFile' <<<"$track_json")
 audio_file=$(jq -r '.audioFile' <<<"$track_json")
+audio_bitrate=$(jq -r '.audioBitrate // "256k"' <<<"$track_json")
+audio_sample_rate=$(jq -r '.audioSampleRate // empty' <<<"$track_json")
 
 lyrics_path="$ROOT_DIR/public/$lyrics_file"
 audio_path="$ROOT_DIR/public/$audio_file"
@@ -146,14 +148,13 @@ render_cmd=(
 
 "${render_cmd[@]}"
 
-ffmpeg \
-  -y \
-  -i "$audio_path" \
-  -vn \
-  -c:a aac \
-  -b:a 256k \
-  -movflags +faststart \
-  "$aac_audio_path"
+aac_cmd=(ffmpeg -y -i "$audio_path" -vn -c:a aac -b:a "$audio_bitrate" -ac 2)
+if [[ -n $audio_sample_rate ]]; then
+  aac_cmd+=(-ar "$audio_sample_rate")
+fi
+aac_cmd+=(-movflags +faststart "$aac_audio_path")
+echo "Audio encode: AAC ${audio_bitrate}${audio_sample_rate:+ @ ${audio_sample_rate}Hz}"
+"${aac_cmd[@]}"
 
 ffmpeg \
   -y \
