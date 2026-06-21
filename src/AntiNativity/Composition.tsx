@@ -236,8 +236,8 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
             const visible = Math.min(nextStart - start, 7 * fps);
             const prog = frame - start;
             if (prog > visible) return null;
-            // ink-in left-to-right, as if written by hand (matches the Arda reveal feel, ~1.1s)
-            const revealFrames = Math.min(66, Math.max(20, visible - 16));
+            // ink-in left-to-right, as if written by hand — slow, calligraphic (~60% of prior speed)
+            const revealFrames = Math.min(110, Math.max(30, visible - 18));
             const reveal = clamp01(prog / revealFrames);
             const solid = reveal * 100;
             const mask =
