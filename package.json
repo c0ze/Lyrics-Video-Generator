@@ -23,6 +23,7 @@
     "@types/web": "0.0.166",
     "eslint": "^9.39.4",
     "prettier": "3.6.0",
+    "sharp": "^0.35.2",
     "typescript": "5.9.3"
   },
   "scripts": {
