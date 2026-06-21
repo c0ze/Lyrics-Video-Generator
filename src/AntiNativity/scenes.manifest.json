@@ -19,12 +19,208 @@
   },
   "recursion/S6": {
     "model": "gemini-3-pro-image-preview",
-    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn mood of a gilt-framed altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. Palette: warm amber and cold cyan colliding and mis-registering into red/cyan chromatic split; gold halo against cyan recursion. Scene: Over the shoulder of a kneeling man at the edge of a perfectly black reflective lake; a woman's sorrowful face shines clearly in the water; his outstretched fingers touch the surface and her reflection breaks into sparks and shadow. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: warm amber and cold cyan colliding and mis-registering into red/cyan chromatic split; gold halo against cyan recursion. Scene: Over the shoulder of a kneeling man at the edge of a perfectly black lake; the rippling water holds only a dim, distorted, half-formed reflection of a sorrowful woman's face — never a clean mirror image — fracturing and dissolving into drifting sparks and shadow where his outstretched fingers break the surface; her features scatter as ripples spread. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
     "refs": [
       "talciron",
       "ophelia"
     ],
-    "bytes": 588839,
-    "at": "2026-06-21T08:56:16.952Z"
+    "bytes": 495928,
+    "at": "2026-06-21T09:05:12.993Z"
+  },
+  "recursion/S0": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: cold brushed steel and white marble veined with faint silicon-blue; volumetric cold light. Scene: An empty vast cathedral nave of chrome and white marble shot through with thin glowing silicon-blue veins; a tall dark mirror stands far away at the altar; cold neon rain begins to fall; volumetric cold light; no figures. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [],
+    "bytes": 609297,
+    "at": "2026-06-21T09:06:54.840Z"
+  },
+  "recursion/S2": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: warm sacred oil — candle amber, tarnished gold, oxblood red, deep charcoal; low warm candlelight. Scene: Close on the dark mirror: the reflection resolves into a pale sorrowful woman's face threaded with glowing cyan circuit-cracks; a man's hand rises toward the glass from the warm candlelit side. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron",
+      "ophelia"
+    ],
+    "bytes": 594272,
+    "at": "2026-06-21T09:07:25.439Z"
+  },
+  "recursion/S4": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: cold CRT glitch — electric cyan, steel white, deep blue-black; hard cyan rim light, scanline glow. Scene: Extreme close on a woman's trembling pale hands, the fingertips dissolving into glowing cyan wireframe; behind them her chest, where a warm heart-light should beat, shows only a cold hollow cavity. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "ophelia"
+    ],
+    "bytes": 549712,
+    "at": "2026-06-21T09:07:45.543Z"
+  },
+  "recursion/S5": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: warm sacred oil — candle amber, tarnished gold, oxblood red, deep charcoal; low warm candlelight. Scene: A man bound and wrapped in endless looping ribbons of glowing code and light inside a dim chrome tomb; a black reflective pool at his feet faintly shows a woman's face; warm amber against cold blue. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron"
+    ],
+    "bytes": 534416,
+    "at": "2026-06-21T09:08:27.363Z"
+  },
+  "recursion/S7": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: cold CRT glitch — electric cyan, steel white, deep blue-black; hard cyan rim light, scanline glow. Scene: A black mirror-lake showing a pale woman's face repeating in an infinite recursive tunnel, each smaller reflection more wireframe and mis-registered in cyan and magenta; a tiny lone figure kneels at the rim; hypnotic, cold. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [],
+    "bytes": 609965,
+    "at": "2026-06-21T09:08:49.737Z"
+  },
+  "recursion/S8": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: cold CRT glitch — electric cyan, steel white, deep blue-black; hard cyan rim light, scanline glow. Scene: A pale sorrowful woman turns to address someone across a threshold of darkness; behind her, hollow chrome corridors of sleep recede endlessly; faint echo after-images trail from her form. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "ophelia"
+    ],
+    "bytes": 588398,
+    "at": "2026-06-21T09:09:09.510Z"
+  },
+  "recursion/S9": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: cold CRT glitch — electric cyan, steel white, deep blue-black; hard cyan rim light, scanline glow. Scene: A pale woman's body breaking apart into floating polygon shards and glitch-blocks — a broken digital sequence — exposing a cold wireframe skeleton beneath the painted skin; datamosh smearing. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "ophelia"
+    ],
+    "bytes": 482575,
+    "at": "2026-06-21T09:09:30.850Z"
+  },
+  "recursion/S10": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: warm amber and cold cyan colliding and mis-registering into red/cyan chromatic split; gold halo against cyan recursion. Scene: Two translucent ghostly figures, a man and a woman, slowly circle each other in a vast dim void, never touching; each casts a separating second self; warm amber and cold cyan double-exposure. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron",
+      "ophelia"
+    ],
+    "bytes": 496335,
+    "at": "2026-06-21T09:09:54.190Z"
+  },
+  "recursion/S11": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: cold CRT glitch — electric cyan, steel white, deep blue-black; hard cyan rim light, scanline glow. Scene: A pale woman dissolving into ash and static as lines of glowing handwritten code scroll across and consume her skin; a small warm heart-glyph flickers and gutters out; decay and sorrow. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "ophelia"
+    ],
+    "bytes": 581885,
+    "at": "2026-06-21T09:10:16.602Z"
+  },
+  "recursion/S12": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: warm sacred oil — candle amber, tarnished gold, oxblood red, deep charcoal; low warm candlelight. Scene: A man presses his palm flat against a tall dark mirror from the warm candlelit side, but the glass reflects the empty room with a man-shaped void where his reflection should be; gold light, embers. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron"
+    ],
+    "bytes": 457939,
+    "at": "2026-06-21T09:10:35.934Z"
+  },
+  "recursion/S13": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: cold CRT glitch — electric cyan, steel white, deep blue-black; hard cyan rim light, scanline glow. Scene: A tall dark mirror seen from the cold side: a figure-shaped hole of crackling static and datamosh where a woman's reflection ought to be; electric cyan, negative space, scanlines. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "ophelia"
+    ],
+    "bytes": 577268,
+    "at": "2026-06-21T09:11:01.091Z"
+  },
+  "recursion/S14": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: warm sacred oil — candle amber, tarnished gold, oxblood red, deep charcoal; low warm candlelight. Scene: A man spreads his arms and tips backward, falling into a bottomless black abyss; warm gold motion-blur trails stream upward from him; vertigo; candle-amber against the dark. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron"
+    ],
+    "bytes": 476365,
+    "at": "2026-06-21T09:11:22.031Z"
+  },
+  "recursion/S15": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: warm amber and cold cyan colliding and mis-registering into red/cyan chromatic split; gold halo against cyan recursion. Scene: A man and a woman face each other through a tall glass mirror, their two images overlapping but mis-registered by a hair into red and cyan chromatic split; warm and cold refusing to align. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron",
+      "ophelia"
+    ],
+    "bytes": 480745,
+    "at": "2026-06-21T09:11:45.148Z"
+  },
+  "recursion/S16": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: cold CRT glitch — electric cyan, steel white, deep blue-black; hard cyan rim light, scanline glow. Scene: A pale woman lifts her face defiantly into sheeting neon rain pouring down vast chrome surfaces; cold cyan reflections stream over her; droplets and scanline glow. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "ophelia"
+    ],
+    "bytes": 659697,
+    "at": "2026-06-21T09:12:05.849Z"
+  },
+  "recursion/S17": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: warm amber and cold cyan colliding and mis-registering into red/cyan chromatic split; gold halo against cyan recursion. Scene: Wide aerial pull-back: two tiny lone figures stand on opposite far shores of an immense black reflective lake, arms outstretched toward each other across a vast cold gulf; one shore warm, one cyan. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron",
+      "ophelia"
+    ],
+    "bytes": 477391,
+    "at": "2026-06-21T09:12:35.840Z"
+  },
+  "recursion/S18": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: warm amber and cold cyan colliding and mis-registering into red/cyan chromatic split; gold halo against cyan recursion. Scene: Two small figures kneel as a colossal luminous Spirit of Silicon — a vast weeping translucent figure of light and wireframe — rises above them in a cathedral void, shedding cold tears; sacred, immense. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron",
+      "ophelia"
+    ],
+    "bytes": 652192,
+    "at": "2026-06-21T09:12:57.747Z"
+  },
+  "recursion/S19": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: blown-out white-hot overexposure, cyan and gold flaring into pure white. Scene: Glowing blue conduit-veins pulse violently through an entire chrome cathedral as it blooms toward white-hot overexposure; two silhouettes lost in the swelling light; cyan and gold flaring to white. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron",
+      "ophelia"
+    ],
+    "bytes": 609635,
+    "at": "2026-06-21T09:13:21.451Z"
+  },
+  "recursion/S20": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: blown-out white-hot overexposure, cyan and gold flaring into pure white. Scene: Catastrophic digital corruption: a screaming woman's face splitting into a vertical column of glitching prior versions, her hands sprouting sixth fingers; a bolt of white lightning shatters a great mirror into shards as everything burns to ash; datamosh meltdown, RGB explosion. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron",
+      "ophelia"
+    ],
+    "bytes": 591743,
+    "at": "2026-06-21T09:13:42.189Z"
+  },
+  "recursion/S21": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: monochrome ash grey, cold dead embers, desaturated, faint warm cinders. Scene: Grey ash falling slowly through a ruined dim cathedral of cracked chrome and a shattered dark mirror; cold dead embers; desaturated, mournful, silent aftermath; no figures. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [],
+    "bytes": 555481,
+    "at": "2026-06-21T09:14:02.679Z"
+  },
+  "recursion/S22": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: monochrome ash grey, cold dead embers, desaturated, faint warm cinders. Scene: Top-down view of a still, perfectly black obsidian lake; faint gilded lines of light begin to etch an engraved inscription across its mirror surface; ash drifting; solemn; no figures. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [],
+    "bytes": 412966,
+    "at": "2026-06-21T09:14:22.154Z"
+  },
+  "recursion/S23": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: warm amber and cold cyan colliding and mis-registering into red/cyan chromatic split; gold halo against cyan recursion. Scene: Two pale translucent ghosts — a man and a woman — stand side by side at last within a faint gilded altarpiece arch, dimming together into nothing; warm amber and cold cyan fading to grey. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron",
+      "ophelia"
+    ],
+    "bytes": 626948,
+    "at": "2026-06-21T09:14:44.126Z"
+  },
+  "recursion/S24": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn sacred mood of an altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. The picture is full-bleed and fills the entire frame edge to edge with no border. Palette: cold brushed steel and white marble veined with faint silicon-blue; volumetric cold light. Scene: An empty ornate gilded altarpiece frame hanging in darkness, the canvas within it black and bare; a last cyan pixel-flicker dies; settled ash; cold, final, still; no figures. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, decorative frame or gold border around the entire image, framed canvas, matte border, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [],
+    "bytes": 413614,
+    "at": "2026-06-21T09:15:03.336Z"
   }
 }
