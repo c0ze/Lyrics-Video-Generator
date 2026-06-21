@@ -1,0 +1,30 @@
+{
+  "recursion/S1": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn mood of a gilt-framed altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. Palette: warm sacred oil — candle amber, tarnished gold, oxblood red, deep charcoal; low warm candlelight. Scene: A solitary man stands before a tall dark glass mirror in a candlelit chrome cathedral; warm gold light on his face; a faint fair face is only just beginning to surface inside the black glass; drifting embers. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron"
+    ],
+    "bytes": 543106,
+    "at": "2026-06-21T08:54:45.604Z"
+  },
+  "recursion/S3": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn mood of a gilt-framed altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. Palette: cold CRT glitch — electric cyan, steel white, deep blue-black; hard cyan rim light, scanline glow. Scene: A pale translucent phantom woman with long black hair walks through a narrow corridor of glowing blue conduit-veins; cold neon rain on chrome; her body flickers like failing reception. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "ophelia"
+    ],
+    "bytes": 740424,
+    "at": "2026-06-21T08:55:53.508Z"
+  },
+  "recursion/S6": {
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "Cinematic 16:9 still in the style of a Renaissance devotional oil painting — candlelit chiaroscuro, sfumato, the solemn mood of a gilt-framed altarpiece — but quietly corrupted by failing 1995 computer graphics: faint flat-shaded polygon facets, thin glowing wireframe seams, CRT scanlines and chromatic-aberration edges bleeding through the brushwork. Sacred, melancholic, cold. Painterly, highly detailed. Palette: warm amber and cold cyan colliding and mis-registering into red/cyan chromatic split; gold halo against cyan recursion. Scene: Over the shoulder of a kneeling man at the edge of a perfectly black reflective lake; a woman's sorrowful face shines clearly in the water; his outstretched fingers touch the surface and her reflection breaks into sparks and shadow. Any man in the scene must match the referenced face: a pale young man, shoulder-length dark wavy hair, a short goatee, melancholic — painted as a living figure inside the scene, never as a framed portrait. Any woman in the scene must match the referenced face: pale, long straight black hair, sorrowful — painted as a living figure inside the scene, never as a framed portrait; do not draw a decorative frame around her. Composition: wide cinematic 16:9, generous negative space, single coherent image. Avoid: text, words, letters, captions, watermark, signature, logo, ornate picture frame around a person, framed portrait, modern clothing, photographic selfie, deformed hands except where art-directed, extra limbs, blurry, low quality, oversaturation, cartoon, anime, meme.",
+    "refs": [
+      "talciron",
+      "ophelia"
+    ],
+    "bytes": 588839,
+    "at": "2026-06-21T08:56:16.952Z"
+  }
+}
