@@ -7,7 +7,9 @@ import {
   delayRender,
   Img,
   interpolate,
+  OffthreadVideo,
   random,
+  Sequence,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
@@ -41,6 +43,8 @@ const SCENES = (scenesJson as unknown as ScenesFile).songs;
 const clamp01 = (t: number) => Math.min(1, Math.max(0, t));
 const lerp = (a: number, b: number, t: number) => a + (b - a) * clamp01(t);
 const CROSSFADE = 30; // 0.5s @60
+const VIDEO_SCENES = new Set(["S3", "S6", "S18"]); // scenes backed by a Veo image-to-video clip
+const VEO_USABLE_SEC = 6.8; // play only the first ~6.8s of each 8s clip (drop the drifting tail)
 
 const kenBurns = (motion: SceneDef["motion"], p: number) => {
   switch (motion) {
@@ -120,7 +124,9 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
         const cf = s.id === "S21" ? 90 : CROSSFADE; // long morph from the S20 crash into the cathedral
         if (frame < s.start - cf || frame >= s.end) return null;
         const p = (frame - s.start) / Math.max(s.end - s.start, 1);
-        const kb = kenBurns(s.motion, p);
+        const isVideo = VIDEO_SCENES.has(s.id);
+        // video clips carry their own motion, so hold the camera nearly static over them
+        const kb = isVideo ? { s: 1.04, x: 0, y: 0 } : kenBurns(s.motion, p);
         const opacity =
           s.transition === "hard-cut"
             ? frame >= s.start
@@ -130,17 +136,25 @@ export const AntiNativityComposition: React.FC<AntiNativityProps> = ({
                 extrapolateLeft: "clamp",
                 extrapolateRight: "clamp",
               });
-        const painting = (
-          <Img
-            src={staticFile(`AntiNativity/scenes/${songId}/${s.id}.jpg`)}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              transform: `scale(${kb.s}) translate(${kb.x}%, ${kb.y}%)`,
-              filter: TEMP_GRADE[s.temp],
-            }}
-          />
+        const mediaStyle: React.CSSProperties = {
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          transform: `scale(${kb.s}) translate(${kb.x}%, ${kb.y}%)`,
+          filter: TEMP_GRADE[s.temp],
+        };
+        const seqFrom = Math.max(0, s.start - cf);
+        const painting = isVideo ? (
+          <Sequence from={seqFrom} durationInFrames={Math.max(1, s.end - seqFrom)} name={`${s.id}-video`}>
+            <OffthreadVideo
+              src={staticFile(`AntiNativity/scenes/${songId}/${s.id}.mp4`)}
+              muted
+              playbackRate={Math.max(0.1, VEO_USABLE_SEC / Math.max(0.5, (s.end - seqFrom) / fps))}
+              style={mediaStyle}
+            />
+          </Sequence>
+        ) : (
+          <Img src={staticFile(`AntiNativity/scenes/${songId}/${s.id}.jpg`)} style={mediaStyle} />
         );
         const fx = new Set(s.effects);
         // S20 (the crash) holds clear, then every corruption ramps in together after ~30%
