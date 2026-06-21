@@ -1,0 +1,13 @@
+[
+  {
+    "trackId": "06",
+    "title": "The Recursion of Ash and Lightning",
+    "compositionId": "AntiNativity-06",
+    "songId": "recursion",
+    "lyricsFile": "AntiNativity/recursion-of-ash-and-lightning.lrc",
+    "audioFile": "AntiNativity/audio/recursion-of-ash-and-lightning.wav",
+    "coverImageFile": "AntiNativity/scenes/recursion/S0.jpg",
+    "audioBitrate": "384k",
+    "audioSampleRate": "48000"
+  }
+]
