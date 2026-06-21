@@ -146,6 +146,11 @@ render_cmd=(
   "$silent_video_path"
 )
 
+# Optional: cap concurrency for stability with OffthreadVideo scenes (export REMOTION_CONCURRENCY=4)
+if [[ -n ${REMOTION_CONCURRENCY:-} ]]; then
+  render_cmd+=("--concurrency=$REMOTION_CONCURRENCY")
+fi
+
 "${render_cmd[@]}"
 
 aac_cmd=(ffmpeg -y -i "$audio_path" -vn -c:a aac -b:a "$audio_bitrate" -ac 2)
