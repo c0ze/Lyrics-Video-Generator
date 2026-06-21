@@ -28,7 +28,7 @@ const VEO_CANDIDATES = (process.env.VEO_MODEL ? [process.env.VEO_MODEL] : []).co
 
 // Per-scene motion direction (seeded from the still; keep it subtle + on-look).
 const MOTION = {
-  S18: "Slow subtle motion: a single luminous tear wells and slides down her cheek; she blinks slowly; faint cyan flicker; otherwise almost still; melancholic, cinematic.",
+  S18: "Very subtle restrained motion: a single small tear slowly wells at the corner of one eye and only barely begins to fall; she blinks slowly once; faint cyan flicker; otherwise almost completely still; quiet contained grief.",
   S3: "She walks slowly forward down the cathedral nave toward the camera; her gown and long hair drift; cold neon rain falls through the nave; slow cinematic dolly.",
   S6: "Her hand presses slowly against the inside of the screen; where her fingertips meet the glass the image breaks into drifting sparks and pixels; eerie, slow.",
   S10: "The two translucent spectres slowly turn and circle each other in a ghostly, dreamlike dance, their semi-transparent forms drifting and trailing ethereal light; they never touch; slow, mournful, floating.",
