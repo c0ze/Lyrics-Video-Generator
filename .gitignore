@@ -32,3 +32,7 @@ yarn-error.log*
 
 # brainstorming scratch (visual companion)
 .superpowers/
+
+# Anti-Nativity heavy local assets (regenerated/vendored locally)
+public/AntiNativity/audio/
+public/AntiNativity/scenes/
