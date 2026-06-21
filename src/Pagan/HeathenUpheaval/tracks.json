@@ -1,0 +1,37 @@
+[
+  {
+    "trackId": "02",
+    "title": "The Longing and the Ancient Ones",
+    "compositionId": "PaganHeathenUpheaval-02",
+    "lyricsFile": "Pagan/HeathenUpheaval/02 The Longing and the Ancient Ones.lrc",
+    "audioFile": "Pagan/HeathenUpheaval/02 The Longing and the Ancient Ones.flac"
+  },
+  {
+    "trackId": "03",
+    "title": "Shamanic Flames",
+    "compositionId": "PaganHeathenUpheaval-03",
+    "lyricsFile": "Pagan/HeathenUpheaval/03 Shamanic Flames.lrc",
+    "audioFile": "Pagan/HeathenUpheaval/03 Shamanic Flames.flac"
+  },
+  {
+    "trackId": "04",
+    "title": "Marching of the Hordes",
+    "compositionId": "PaganHeathenUpheaval-04",
+    "lyricsFile": "Pagan/HeathenUpheaval/04 Marching of the Hordes.lrc",
+    "audioFile": "Pagan/HeathenUpheaval/04 Marching of the Hordes.flac"
+  },
+  {
+    "trackId": "05",
+    "title": "The Ascending",
+    "compositionId": "PaganHeathenUpheaval-05",
+    "lyricsFile": "Pagan/HeathenUpheaval/05 The Ascending.lrc",
+    "audioFile": "Pagan/HeathenUpheaval/05 The Ascending.flac"
+  },
+  {
+    "trackId": "06",
+    "title": "Bitter Gates of Grief",
+    "compositionId": "PaganHeathenUpheaval-06",
+    "lyricsFile": "Pagan/HeathenUpheaval/06 Bitter Gates of Grief.lrc",
+    "audioFile": "Pagan/HeathenUpheaval/06 Bitter Gates of Grief.flac"
+  }
+]
