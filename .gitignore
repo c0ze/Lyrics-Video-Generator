@@ -12,6 +12,14 @@ renders/
 *.webm
 *.gif
 *.flac
+*.wav
+
+# Archives (source archives, kept local)
+*.zip
+
+# Heavy backdrop art — kept local; re-add via LFS or a release
+public/Pagan/Acolytes/backdrop.png
+public/Pagan/HeathenUpheaval/backdrop.png
 
 # OS
 .DS_Store
@@ -21,3 +29,10 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# brainstorming scratch (visual companion)
+.superpowers/
+
+# Anti-Nativity heavy local assets (regenerated/vendored locally)
+public/AntiNativity/audio/
+public/AntiNativity/scenes/
